@@ -1,0 +1,337 @@
+\documentclass{pca}
+
+\usepackage{amsthm}
+\usepackage{charter}
+\usepackage{eulervm}
+\usepackage{bbm}
+\usepackage[bbgreekl]{mathbbol}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{makeidx}
+\usepackage{footmisc}
+\usepackage{mathrsfs}
+\usepackage{float}
+
+\usepackage[many]{tcolorbox}
+\usepackage{framed}
+
+\usepackage{csquotes}
+\usepackage{imakeidx}
+\usepackage{gensymb}
+
+\usepackage{cases}
+\usepackage{caption}
+
+\usepackage{natbib}
+
+%\theoremstyle{definition}
+
+%\newtheorem{theorem}{Theorem}
+
+%\newtheorem{definition}{Definition}
+%\newtheorem{corollary}{Corollary}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{example}{Example}
+%\setcounter{tocdepth}{4}
+%\floatstyle{ruled}
+%\newfloat{pseudo}{h}{lop}
+%\floatname{pseudo}{Algorithm}
+
+%\let\doendproof\endproof
+%\renewcommand\endproof{~\hfill\qed\doendproof}
+
+\usepackage{color}
+\usepackage{xcolor}
+
+\newcommand{\p}{\,\text{.}}
+
+%\newenvironment{aside}{
+%	\setlength{\leftskip}{1em}\par\itshape
+%}{
+%	
+%	\setlength{\leftskip}{0em}\par
+%}
+
+\definecolor{my-green}{HTML}{677d00}
+\definecolor{my-light-green}{HTML}{acd373}
+\definecolor{my-lighter-green}{HTML}{e6ecce}
+\definecolor{my-red}{HTML}{b13e26}
+\definecolor{my-light-red}{HTML}{d38473}
+\definecolor{my-blue}{HTML}{306693}
+\definecolor{my-light-blue}{HTML}{73a7d3}
+\definecolor{my-gray}{HTML}{999999}
+\definecolor{my-orange}{HTML}{E69500}
+\definecolor{my-light-orange}{HTML}{FFC353}
+
+\usepackage[colorlinks=true,citecolor=my-red,urlcolor=my-green,linkcolor=my-red]{hyperref}
+
+\newcommand{\lgc}[1]{{\color{my-light-green} #1}}
+\newcommand{\gc}[1]{{\color{my-green} #1}}
+\newcommand{\lrc}[1]{{\color{my-light-red} #1}}
+\newcommand{\rc}[1]{{\color{my-red} #1}}
+\newcommand{\lbc}[1]{{\color{my-light-blue} #1}}
+\newcommand{\bc}[1]{{\color{my-blue} #1}}
+\newcommand{\kc}[1]{{\color{my-gray} #1}}
+\newcommand{\loc}[1]{{\color{my-light-orange} #1}}
+\newcommand{\oc}[1]{{\color{my-orange} #1}}
+
+\newcommand{\mba}{\mathbold a}
+\newcommand{\mbA}{\mathbold A}
+\newcommand{\mbb}{\mathbold b}
+\newcommand{\mbB}{\mathbold B}
+\newcommand{\mbc}{\mathbold c}
+\newcommand{\mbC}{\mathbold C}
+\newcommand{\mbd}{\mathbold d}
+\newcommand{\mbD}{\mathbold D}
+\newcommand{\mbE}{\mathbold E}
+\newcommand{\mbI}{\mathbold I}
+\newcommand{\mbL}{\mathbold L}
+\newcommand{\mbm}{\mathbold m}
+\newcommand{\mbM}{\mathbold M}
+\newcommand{\mbr}{\mathbold r}
+\newcommand{\mbs}{\mathbold s}
+\newcommand{\mbt}{\mathbold t}
+\newcommand{\mbS}{\mathbold S}
+\newcommand{\mbz}{\mathbold z}
+\newcommand{\mbv}{\mathbold v}
+\newcommand{\mbk}{\mathbold k}
+\newcommand{\mbp}{\mathbold p}
+\newcommand{\mbP}{\mathbold P}
+\newcommand{\mbq}{\mathbold q}
+\newcommand{\mbQ}{\mathbold Q}
+\newcommand{\mbbr}{\mathbold r}
+\newcommand{\mbR}{\mathbold R}
+\newcommand{\Sig}{\mathbold \Sigma}
+\newcommand{\mbft}{\mathbold t}
+\newcommand{\mbT}{\mathbold T}
+\newcommand{\mbe}{\mathbold e}
+\newcommand{\mbu}{\mathbold u}
+\newcommand{\mbU}{\mathbold U}
+\newcommand{\mbfv}{\mathbold v}
+\newcommand{\mbV}{\mathbold V}
+\newcommand{\mbw}{\mathbold w}
+\newcommand{\mbW}{\mathbold W}
+\newcommand{\mbx}{\mathbold x}
+\newcommand{\mbX}{\mathbold X}
+\newcommand{\mby}{\mathbold y}
+\newcommand{\mbY}{\mathbold Y}
+\newcommand{\mbfz}{\mathbold z}
+\newcommand{\mbZ}{\mathbold Z}
+
+%\newcommand{\p}{,\text{.}}
+\newcommand{\tab}{\hspace{1em}}
+
+\newcommand{\mR}{\mathbb R}
+\newcommand{\mC}{\mathbb C}
+\newcommand{\mN}{\mathbb N}
+\newcommand{\mZ}{\mathbb Z}
+
+%\newcommand{\deg}{^{\circ}}
+
+\newcommand{\argmin}[1]{\underset{#1}{\text{argmin}}}
+\newcommand{\argmax}[1]{\underset{#1}{\text{argmax}}}
+
+\setcounter{tocdepth}{2}
+
+%%% Proof %%%
+\definecolor{proofcolor}{RGB}{200, 200, 200}
+\definecolor{theorembordercolor}{RGB}{151, 63, 5}
+\definecolor{theorembackgroundcolor}{RGB}{248, 241, 234}
+
+\newtheoremstyle{theorem}
+{0pt}{0pt}{\normalfont}{0pt}
+{}{}{0em}
+{\hspace{-0.33em}\thmnote{\normalfont\bfseries\color{my-green}~#3}\hspace{0.7em}}
+
+% \thmname{#1}
+% \thmnumber{\textup{#2}}.
+
+\theoremstyle{theorem}
+
+\newtheorem{theorem}{Theorem}
+\tcolorboxenvironment{theorem}{
+    enhanced jigsaw, pad at break*=0mm, breakable,
+    grow to left by=6.75mm,left*=0mm, grow to right by =6.75mm, right*=0mm, top=2mm, bottom=2mm,
+    colback=my-lighter-green, boxrule=0pt, frame hidden,
+    after skip=13.5pt,
+    borderline west={1mm}{0mm}{my-green}, arc=.5mm
+}
+
+%%  Proof %%%
+
+\makeatletter
+
+\def\renewtheorem#1{%
+    \expandafter\let\csname#1\endcsname\relax
+    \expandafter\let\csname c@#1\endcsname\relax
+    \gdef\renewtheorem@envname{#1}
+    \renewtheorem@secpar
+}
+\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
+\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
+\def\renewtheorem@nonumberedlike#1{
+    \def\renewtheorem@caption{#1}
+    \edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
+    \renewtheorem@thirdpar
+}
+\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
+\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
+
+\makeatother
+
+\newtheoremstyle{proof}
+{0pt}{0pt}{\normalfont}{0pt}
+{}{}{1em}
+{{\bfseries\color{proofcolor}\thmname{#1}.}
+    \thmnote{\normalfont\color{black}~(\textit{#3})}}
+
+\theoremstyle{proof}
+\renewtheorem{proof}{Proof}
+
+\tcolorboxenvironment{proof}{
+    enhanced jigsaw, pad at break*=0mm, breakable, parbox=false,
+	grow to left by=6.75mm,left*=0mm, grow to right by=6.75mm, right*=0mm, top=2mm, bottom=2mm, colback=white, boxrule=0pt, frame hidden, 
+	before skip=-13.5pt,
+    borderline west={1mm}{0mm}{proofcolor}, arc=.5mm
+}
+
+\title{\Large Unraveling Principal Component Analysis \\ Digging up the foundations of linear algebra}
+
+\DeclareCaptionFormat{custom}
+{%
+    \textbf{#1#2}{\setlength{\leftskip}{1em}\par #3\setlength{\leftskip}{0em}\par}
+}
+\captionsetup{format=custom}
+
+\newsavebox{\overlongequation}
+\newenvironment{overlong}
+ {\begin{displaymath}\begin{lrbox}{\overlongequation}$\displaystyle}
+ {$\end{lrbox}\makebox[0pt]{\usebox{\overlongequation}}\end{displaymath}}
+
+%\newsavebox{\overlongalign}
+%\newenvironment{overlonga}
+% {\begin{lrbox}\begin{align*}{\overlongequation}$\displaystyle}
+% {$\makebox[0pt]{\usebox{\overlongequation}}\end{align*}\end{lrbox}}
+%
+
+\usepackage{noindentafter} % This doesn't work in pdflatex
+
+\NoIndentAfterCmd{\]}
+%\NoIndentAfterEnv{summary}
+\NoIndentAfterEnv{figure}
+\NoIndentAfterEnv{aside}
+\NoIndentAfterEnv{align*}
+\NoIndentAfterEnv{proof}
+\NoIndentAfterEnv{theorem}
+\NoIndentAfterEnv{lemma}
+%\NoIndentAfterEnv{example}
+%\NoIndentAfterEnv{definition}
+\NoIndentAfterEnv{itemize}
+\NoIndentAfterEnv{enumerate}
+%\NoIndentAfterEnv{description}
+\NoIndentAfterEnv{displayquote}
+
+
+\date{\today}
+
+\makeindex
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter*{~}
+
+\vspace{-131pt}
+
+Who is this book for? It wasn't born from a desire to plug a gap in the market, and I didn't have a clear idea of the kind of book I wanted to create when I started. For a long time, it wasn't even meant to be a book. 
+
+It started when I began teaching machine learning in 2018. One of the topics was principal component analysis, and I wanted to do a good job, since it was a topic that had entranced and mystified me in equal measure as a student. I wanted to do it justice.
+
+It turned out that I couldn't do that in the time that was available to prepare a single lecture. On the morning before the lecture, going over my slides I caught several mistakes that I couldn't quite fix, and many questions that I didn't know how to answer.
+
+I brushed it off, survived the lecture despite feeling like an imposter, and resolved to do better next year. The next year, the same thing happened again. Different mistakes, different questions, but the same feeling of cheating myself and the students.
+
+The thing is, as a student, I never delved deeply into the mathematics of anything. I never \emph{really} got to grips with linear algebra and at best, I could only ever claim to have a working grasp of what I needed to apply it in simple settings, and to look up what I didn't know. 
+
+This, I expect, is how it is for many students and researchers alike: we are taught the fundamentals from the ground up, but we only start tuning in when things become concrete. The foundations, we either never learn, or quickly forget.
+
+After three years of this, I decided it was enough, and I began to write a blog post on PCA. This would finally force me to properly come to grips with the subject, however deep the rabbit hole went. Once I was finished, I could use the blog post as part of the teaching material. Proof, if any were need, that I really did know what I was talking about.
+
+The more I wrote, the more questions I generated for myself, and the more the blog post span out of control. I decided to split the thing in two: the first part a simple self-contained story for those, like my students, who just wanted to understand enough of PCA to apply it effectively, and a second part that delved into the fundamentals. 
+
+The pattern continued steadily: to really get down to the foundations, I needed to prove the spectral theorem. This required so many dependencies it became a third blog post, so it didn't clutter up the second. Then, I felt, I needed to end on a clear algorithm for PCA. You can't say you really understand something if you don't know how to implement it. This is always done through the singular value decomposition (SVD), which I then felt I should also understand properly. In the end, the explanation of the SVD and the algorithm to compute it became too big to put into a single blogpost and I split those up too, bringing the tally to five. Five blog posts, with each little too big to function well as a blog post.
+
+In short, I realized I had accidentally written a book. Like I said. I don't really know who it's for. It's about PCA, but it covers much more than that. Almost everything a linear algebra textbook does. But it's not a textbook by any stretch; I certainly wouldn't teach from it, and it kind of assumes you know linear algebra already when you start reading.
+
+It's also not quite popular science. I occasionally go into narrative mode, but really, the aim is to go deep. To dig up the foundations.
+
+ I suppose it's a book for people like me. People who have learned linear algebra and then forgotten it. Who feel a measure of regret that they didn't pay full attention the first time around. If you've ever marveled at the magical results that PCA produces, and you'd like to really understand it, all the way down to the fundament, then this book will provide you with a guide. But perhaps it's best to think of this as a guided tour of the forests of linear algebra. I've been deep into the woods in search of treasure and I've made it back out. Let me show you what I've found.
+ 
+\paragraph{Acknowledgements} I am indebted to \href{https://emilevankrieken.com/}{Emile van Krieken} for corrections and suggestions on the first two chapters, and to Charlie Lu for corrections on Chapter~\ref{chapter:svd}.
+ 
+%~
+%\pagebreak
+%~
+%\pagebreak
+
+\input{chapter1}
+
+\pagebreak
+%\pagestyle{empty}
+~
+\thispagestyle{empty}
+\pagebreak 
+\input{chapter2}
+
+\pagebreak
+%\pagestyle{empty}
+~
+\pagebreak 
+
+\input{chapter3}
+
+\pagebreak
+%\pagestyle{empty}
+~
+\pagebreak 
+
+\input{chapter4}
+
+\pagebreak
+%\pagestyle{empty}
+~
+\pagebreak 
+
+\input{chapter5}
+
+\bibliographystyle{apalike}
+\bibliography{citations.bib}
+
+\appendix
+
+\input{appendix}
+
+\pagestyle{empty}
+
+\printindex
+
+\end{document}
+
+
+
+
+
+
+
+
+
