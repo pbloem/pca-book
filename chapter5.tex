@@ -994,7 +994,7 @@ Now, we need to show that the next matrices in the sequence, \(\mbX_i\) and \(\m
 &= \mbR'_i\gc{{\mbP}'_{i-1}{\mbP}'_i} & &= \mbB_i\gc{{\mbQ}'_{i}{\mbQ}'_{i+1}} & \\
 \end{align*}
 
-<p>And there we have the proof that our algorithm converges to the right solution. If we QR decompose \(\mbX_{i-1}\) and \(\mbY_{i-1}\) and multiply the results back together, mixed up and in reverse order, we get the values \(\mbX_i\) and \(\mbY_i\). Since we know that these converge to the same values as the sequences \(\mbR'_i\) and \(\mbB'_i\), we see that we must be computing the singular value decomposition of \(\gc{\mbM}\).
+And there we have the proof that our algorithm converges to the right solution. If we QR decompose \(\mbX_{i-1}\) and \(\mbY_{i-1}\) and multiply the results back together, mixed up and in reverse order, we get the values \(\mbX_i\) and \(\mbY_i\). Since we know that these converge to the same values as the sequences \(\mbR'_i\) and \(\mbB'_i\), we see that we must be computing the singular value decomposition of \(\gc{\mbM}\).
 
 \begin{aside}As before, the stripped down version we've given here only gives you the singular values (on the diagonal of \(\mbX\)). If you want the singular vectors as well, you'll need to keep a running product of \(\rc{\mbQ}\) and \(\rc{\mbP}\).
 \end{aside}

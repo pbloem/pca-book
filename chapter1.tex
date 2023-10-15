@@ -15,7 +15,7 @@ I'll assume some basic linear algebra knowledge, but  I'll try to explain the pr
 
 \section{The basics}
 
-Let's begin by setting up some basic notation. We are faced with some high-dimensional dataset of instances (examples of whatever we're studying) described with real-valued features. That is, we have \(\gc{n}\) \emph{instances} \(\mbx_\gc{i}\) and each instance is described by a vector of \(\bc{m}\) real values. We describe the dataset as a whole as an \(\gc{n} \times \bc{d}\) matrix \(\mbX\) that is, we arrange the examples as rows, and the features as columns.
+Let's begin by setting up some basic notation. We are faced with some high-dimensional dataset of instances (examples of whatever we're studying) described with real-valued features. That is, we have \(\gc{n}\) \emph{instances} \(\mbx_\gc{i}\) and each instance is described by a vector of \(\bc{m}\) real values. We describe the dataset as a whole as an \(\gc{n} \times \bc{m}\) matrix \(\mbX\) that is, we arrange the examples as rows, and the features as columns.
 
 \begin{figure}[H]
 	\centerline{
@@ -135,9 +135,9 @@ First, note that many different vectors \(\rc{\mbw}\) define the same \rc{dotted
 To be more precise, this doesn't leave a unique solution, but two solutions, assuming that a single direction is optimal, since the unit vector can point top right, or bottom left. In other words, if \(\rc{\mbw}\) is a solution, then so is \(-\rc{\mbw}\).
 \end{aside}
 
-The second simplification is that we can get rid of the second vector \(\rc{\mbv}\). Imagine that we have  some fixed \(\rc{\mbw}\) (that is, the \rc{dotted line} is fixed). Can we work out which choice of \(\mbx_\gc{i}\) on the line will minimize the \bc{reconstruction error}? We will go into a bit of detail here, since it helps to set up some intuitions that will be important in the later chapter of this book.
+The second simplification is that we can get rid of the second vector \(\rc{\mbv}\). Imagine that we have  some fixed \(\rc{\mbw}\) (that is, the \rc{dotted line} is fixed). Can we work out which choice of \(\mbx'_\gc{i}\) on the line will minimize the \bc{reconstruction error}? We will go into a bit of detail here, since it helps to set up some intuitions that will be important in the later chapter of this book.
 
-If you remember your linear algebra, you'll know that this happens when the line of the \bc{reconstruction error} is \emph{orthogonal} to the \rc{dotted line}. In more fancy language, the optimal \(\mbx_\gc{i}\) is the \emph{orthogonal projection} of \(\mbx_\gc{i}\) onto the dotted line. If you look at the image, it's not too difficult to convince yourself that this it true. You can imagine the reconstruction error as a kind of rubber band pulling on \(\mbx_\gc{i}\), and the point where it's orthogonal is where it comes to rest.
+If you remember your linear algebra, you'll know that this happens when the line of the \bc{reconstruction error} is \emph{orthogonal} to the \rc{dotted line}. In more fancy language, the optimal \(\mbx'_\gc{i}\) is the \emph{orthogonal projection} of \(\mbx_\gc{i}\) onto the dotted line. If you look at the image, it's not too difficult to convince yourself that this it true. You can imagine the reconstruction error as a kind of rubber band pulling on \(\mbx'_\gc{i}\), and the point where it's orthogonal is where it comes to rest.
 
 In higher dimensions, however, such physical intuitions will not always save us. Since the relation between orthogonality and least squares is key to understanding PCA, we will take some time to prove this properly.
 
@@ -453,7 +453,7 @@ These approaches are very similar. In fact, they're sometimes confused as equiva
 
 The vector \(\rc{\mbw_1}\) defined in the iterative problem, is the same vector we found in the one-dimensional setting above: the first principal component. If the two problems are equivalent (i.e. they have the same set of solutions), this vector should always be one of the columns of \(\rc{\mbW}\) in the combined problem.
 
-how that this isn't guaranteed, we can look at the case where \(\rc{k} = \bc{m}\). That is, we use as many \rc{latent features} as we have \bc{features in our data}. In this case, the first vector \(\rc{\mbw}\) returned by the iterative approach is still the first principal component, as we've defined it above. However, for the combined approach, we can set \(\rc{\mbW} = \mbI\) for a perfect solution: clearly the columns of \(\mbI\) are orthogonal unit vectors, and \(\rc{\mbW}\rc{\mbW}^T\mbx - \mbx = \mbI\mbI^T\mbx - \mbx = \mbx -\mbx = {\mathbold 0}\), so the solution is optimal.
+To show that this isn't guaranteed, we can look at the case where \(\rc{k} = \bc{m}\). That is, we use as many \rc{latent features} as we have \bc{features in our data}. In this case, the first vector \(\rc{\mbw}\) returned by the iterative approach is still the first principal component, as we've defined it above. However, for the combined approach, we can set \(\rc{\mbW} = \mbI\) for a perfect solution: clearly the columns of \(\mbI\) are orthogonal unit vectors, and \(\rc{\mbW}\rc{\mbW}^T\mbx - \mbx = \mbI\mbI^T\mbx - \mbx = \mbx -\mbx = {\mathbold 0}\), so the solution is optimal.
 
 In short, a solution to the combined problem may not be a solution to the iterated problem. What about the other way around, does solving the iterated problem always give us a solution to the combined problem? Certainly the vectors returned are always mutually orthogonal unit vectors, so the constraint is satisfied. Do we also reach a minimum? It turns out that we do.
 
@@ -582,9 +582,9 @@ This particular figure is from \citet{young2015fossil} (reproduced with permissi
 This analysis is based on full 3D scans of the bones, but it also works if you measure a number of features by hand.
 \end{aside}
 
-Let's add one final example, to really hammer home the magic of PCA. When large-scale genome databases began to be gathered, one of the first things researchers did was to perform principal component analyses. 
-To do so, all you need to do is to extract some features from the DNA sequence. This is easy enough to do: for instance, you can identify a few hundred thousand important genetic markers, and use the presence or absence of each as a binary feature.
+Let's add one final example, to really hammer home the magic of PCA. When large-scale genome databases began to be gathered, one of the first things researchers did, was to perform principal component analyses. 
 
+All you need to do is to extract some features from each DNA sequence. For instance, you can identify a few hundred thousand important genetic markers, and use the presence or absence of each as a binary feature.
 
 \enlargethispage{3em}
 
@@ -596,7 +596,9 @@ To do so, all you need to do is to extract some features from the DNA sequence. 
 	}
 \end{figure}
 
-This was first done by \citet{novembre2008genes} for a dataset of 1387 Europeans, measuring about 200\,000 genetic markers. They applied PCA, and plotted the first two principal components. They then colored the instances by the person's ancestral country of origin (the country of origin of the grandparents if available, otherwise the person's own country of origin). What they saw was something like a blurry picture of Europe.
+PCA has been used this way in genetics for a long time, but it wasn't until large datasets, annotated with country of origin, became available, that a peculiar pattern was noticed. 
+
+This pattern was first found by \citet{novembre2008genes}, using a dataset of 1\,387 Europeans, measuring about 200\,000 genetic markers. They applied PCA, and plotted the first two principal components. They then colored the instances by the person's ancestral country of origin (the country of origin of the grandparents if available, otherwise the person's own country of origin). What they saw was something like a blurry picture of Europe.
 
 %  applied PCA to a database of 1387 European DNA sequences. For each instance, they measured about half a million sites on the DNA sequences to use as features. This is similar to the face example: many more features than instances.
 
@@ -616,7 +618,7 @@ This was first done by \citet{novembre2008genes} for a dataset of 1387 Europeans
 The first principal component corresponds roughly to how far north the person lives (or their ancestors did) and the second principal component to how far east they live. This means that a scatterplot shows up as a fuzzy map of Europe. If we sent a thousand DNA samples off to aliens on the other side of the galaxy, they could work out a rough image of the geography of Earth.
 
 \begin{aside}%
-Note that while this result is impressive, it's easy to misinterpret what this means. These to principal components together explain no more than a few percent of the variance. That is, while we can make a crude prediction of a person's origin from their DNA, we can predict almost nothing about their DNA from their origin. We saw something similar in the example of the Olivetti data: we could predict people's gender and age from the first few principal components, but when we reconstructed the photograph from just this information, the result removed almost all relevant details about the subject of the photograph.
+Note that while this result is impressive, it's easy to misinterpret what this means. These two principal components together explain no more than a few percent of the variance. That is, while we can make a crude prediction of a person's origin from their DNA, we can predict almost nothing about their DNA from their origin. We saw something similar in the example of the Olivetti data: we could predict people's gender and age from the first few principal components, but when we reconstructed the photograph from just this information, the result removed almost all relevant details about the subject of the photograph.
 \end{aside}
 
 
