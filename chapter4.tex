@@ -1707,9 +1707,9 @@ The conclusion is that if we have any matrix \(\gc{\mbM}\) and ask for a rank \(
 
 So, Eckart-Young-Mirsky properly proved. However, we can do a little better. EYM doesn't say that the SVD solution is the \emph{only} optimal low-rank approximation to \(\gc{\mbM}\). There is a large set of solutions. What makes the SVD an especially useful member of this set is that it satisfies some extra requirements.
 
-We've been here before with the PCA solution. We characterized the PCA objective originally as a reconstruction objective, and we noted that there we many solutions, even if we constrained them to be orthogonal. The PCA solution was special because even if we optimize for \(k\) principal components, the PCA solution is the one for which we can isolate the first \(r\) principal components and get a PCA solution for the problem with \(r\).
+We've been here before with the PCA solution. We characterized the PCA objective originally as a reconstruction objective, and we noted that there were many solutions, even if we constrained them to be orthogonal. The PCA solution was special because even if we optimize for \(k\) principal components, the PCA solution then allows us to isolate the first \(r < k\) principal components and get a PCA solution for the problem with \(r\).
 
-This is what makes the SVD unique among the solutions to the low rank approximation problem. A full SVD can be truncated at every \(k\) to give a solution to the rank \(k\) decomposition problem. A \(k\)-truncated SVD can be truncated at \(r < k\), to give a solution to the rank \(r\) problem. 
+Similarly, this is what makes the SVD unique among the solutions to the low rank approximation problem. A full SVD can be truncated at every \(k\) to give a solution to the rank \(k\) decomposition problem. A \(k\)-truncated SVD can be truncated at \(r < k\), to give a solution to the rank \(r\) problem. 
 
 \begin{aside}There are some trivial variations, but apart from that, the singular values and their vectors are uniquely determined.	
 \end{aside}
