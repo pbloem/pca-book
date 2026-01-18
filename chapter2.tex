@@ -17,7 +17,7 @@ In the previous chapter, we defined PCA as a solution to the following problem: 
 \[
 \;\;\;\;\;\;\;\; \rc{\mbw_r} = 
 \begin{cases} 
-	&\argmax{\rc{\mbw}} \sum_\gc{i} \|\mbx_\gc{i}^T\rc{\mbw}\rc{\mbw} - \mbx_\gc{i}\|^2 \\
+	&\argmin{\rc{\mbw}} \sum_\gc{i} \|\mbx_\gc{i}^T\rc{\mbw}\rc{\mbw} - \mbx_\gc{i}\|^2 \\
 	&\;\;\;\;\;\;\text{such that } \rc{\mbw}^T\rc{\mbw} = 1 \hfill \hspace{2em}\bc{\text{(a)}}\\
 	&\;\;\;\;\;\;\text{and } \rc{\mbw}^T\rc{\mbw_j} = 0 \text{ for } \rc{j} \in [1 \ldots \rc{r}-1] \hfill \hspace{2em}\bc{\text{(b)}}
 \end{cases}

@@ -448,7 +448,7 @@ But the metaphor of a piece of paper is slightly misleading. When we flip a piec
 
 A better metaphor is a mirror: imagine standing in front of a mirror and holding up your right hand, palm forward.
 
-It looks like your twin inside the mirror is holding up their left hand, with the thumb facing in the opposite direction. But if the mirror flips the image left-to-right, why doesn't it flip the image up-side-down as well? Why doesn't anything change if we turn the mirror ninety degrees?How does the mirror keep track of which direction the floor is?
+It looks like your twin inside the mirror is holding up their left hand, with the thumb facing in the opposite direction. But if the mirror flips the image left-to-right, why doesn't it flip the image up-side-down as well? Why doesn't anything change if we turn the mirror ninety degrees? How does the mirror keep track of which direction the floor is?
 
 \begin{figure}[p]
 	\centerline{
@@ -832,7 +832,7 @@ If we multiply them, we get
 \begin{align*}
 (\gc{a} + \gc{b}i)(\oc{c} + \oc{d}i) &= \gc{a}\oc{c} + \gc{a}\oc{d}i + \gc{b}i\oc{c} + \gc{b}i\oc{d}i \\
 &= (\gc{a}\oc{c} + \gc{b}\oc{d}\kc{i^2}) + (\gc{a}\oc{d} + \gc{b}\oc{c})i \\
-&= \bc{ac - bd} + \rc{(ad + bc)}i \p
+&= \bc{(ac - bd)} + \rc{(ad + bc)}i \p
 \end{align*}
 
 That is, one \bc{real-valued number}, added to \(i\) times another \rc{real-valued number}. Note that in the second line of the derivation for the multiplication, we can use \(\kc{i^2} = -1\), since we know that \(i = \sqrt{-1}\). In short, multiplying or adding together any two complex numbers gives us another complex number. 
@@ -1139,7 +1139,7 @@ This means we can draw some large circle with radius \(R\), find the smallest va
 
 Now, all we need to do is show that this minimum can be expressed by a complex number. To do that, we'll follow the same sort of argument, but with the magnitude going to \(0\), so that the \emph{lower-order} terms dominate.
 
-First, let \(z_0\) be the minimum we've just shown must exist. Translate \(p\) so that this minimum coincides with the origin, and call the result \(q(z)\). Specifically, \(q(z) = p(z - z_0)\).
+First, let \(z_0\) be the minimum we've just shown must exist. Translate \(p\) so that this minimum coincides with the origin, and call the result \(q(z)\). Specifically, \(q(z) = p(z + z_0)\).
 
 This is another \(n\)-th order polynomial. We'll call its coefficients \(\bc{d_i}\). Note that \(q(0)\) has the same value as \(p(z_0)\) by construction. What we want to show is that \(p(z_0) = 0\).
 
@@ -1151,7 +1151,7 @@ q(z) = \bc{d_0} + \bc{d_k}z^k + \bc{d_{k+1}}z^{k+1} + \;\ldots\; + \bc{d_n}z^n
 
 where \(k\) is the order of the lowest-order, non-constant term.
 
-\noindent We'll show that the proportion of the sum contributed by the higher order terms vanishes as we get near zero, so we can take the simpler function \(q'(z) = \bc{c_0} + \bc{c_k}z^k\) as a good approximation, that becomes perfect at the origin.
+\noindent We'll show that the proportion of the sum contributed by the higher order terms vanishes as we get near zero, so we can take the simpler function \(q'(z) = \bc{d_0} + \bc{d_k}z^k\) as a good approximation, that becomes perfect at the origin.
 
 \begin{aside}
 Note that \(q(0) = q'(0)\).
